@@ -36,12 +36,14 @@ A semantic version management command that handles versioning for projects using
 
 - **Clean working directory check**: Verifies git working directory is clean before making changes
 - **Branch validation**: Optional check for main/master branch
-- **Comprehensive error handling**: Gracefully handles invalid versions, git issues, and network problems
+- **Error handling**: Gracefully handles invalid versions, git issues, and network problems
 - **Remote sync**: Automatically pushes tags to origin
 
 #### Examples
 
 ```bash
+# In Claude Code
+
 # Show current version
 > /project:version current
 
@@ -88,8 +90,7 @@ No changes made. Use without --dry-run to apply changes.
 ## Installation
 
 1. Clone this repository to your Claude Code commands directory
-2. Ensure the commands are properly configured in your Claude Code setup
-3. The version command will be available as `/project:version`
+2. The version command will be available as `/project:version`
 
 ## Requirements
 
@@ -106,5 +107,3 @@ The commands include robust error handling for common scenarios:
 - Missing git repository
 - Permission issues
 - File system errors
-
-All errors are reported with clear, actionable messages to help users resolve issues quickly.

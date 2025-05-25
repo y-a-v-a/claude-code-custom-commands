@@ -1,12 +1,12 @@
 # Semantic Version Manager
 
-Manage semantic versioning for this project using a VERSION file and Git tags.
+You apply or update semantic versioning for the current project using a VERSION file and Git tags.
 
 **Command arguments:** `$ARGUMENTS`
 
 ## Requirements
 
-You are tasked with applying semantic version management with the following specifications:
+You are tasked with applying or updating semantic versioning with the following specifications:
 
 ### Core Functionality
 - **VERSION file management**: If VERSION file doesn't exist, create it with "0.0.1"
@@ -24,7 +24,7 @@ Parse the `$ARGUMENTS` and handle these subcommands:
 - **`set X.Y.Z`** - Set specific version (e.g., `set 2.1.0`)
 
 ### Special Features
-- **Dry-run mode**: If `--dry-run` flag is detected, show what would happen without making changes
+- **Dry-run mode**: If `--dry-run` flag is detected in `$ARGUMENTS`, show what would happen **without** making changes
 - **Pre-release support**: Handle versions like "1.0.0-alpha.1", "2.0.0-beta.2"
 - **Build metadata**: Support build metadata like "1.0.0+build.123"
 
@@ -69,7 +69,7 @@ For successful execution, show:
 ✅ Updated package.json
 ✅ Created git tag: v1.2.4
 ✅ Committed: "Release version 1.2.4"
-✅ Pushed tag to origin
+✅ Pushed commit and tag to origin
 ```
 
 ### Error Examples

@@ -1,10 +1,10 @@
 # Streamlining Development Workflows with Claude Code Custom Commands
 
-I recently discovered a game-changing feature in Claude Code that I had to share: custom slash commands. After spending countless hours repeating the same version management tasks across different projects, I decided to dive deep into this feature and create my own semantic versioning command. What I found was a flexible system that has completely transformed how I handle routine development tasks.
+I recently discovered a neat feature in Claude Code that I had to share: custom slash commands. I wanted a way to easily tag repository states, and specifically in small projects that do not rely on `package.json` or similar, by relying on a `VERSION` file. I decided to dive deep into custom slash commands and create my own semantic versioning command. What I found was a flexible system that has lightened up how I handle routine development tasks.
 
 ## The Problem: Repetitive Version Management
 
-Like many developers, I found myself constantly going through the same tedious process for version releases:
+I love git, it's ondoubtedly very powerful, but the tedious process of versioning was something I stopped doing because of all steps I wanted to take, for example:
 
 1. Check if the working directory is clean
 2. Read the current version from a VERSION file
@@ -14,7 +14,7 @@ Like many developers, I found myself constantly going through the same tedious p
 6. Commit the changes
 7. Push everything to the remote repository
 
-This process, while straightforward, was error-prone and time-consuming. I wanted something more automated, more reliable, and frankly, more elegant.
+This process, while straightforward, was error-prone and time-consuming. I want to rely more on VERSION file updates to trigger GitHub Actions workflows for automated deployments and releases: I wanted something more automated, more reliable, and frankly, more elegant.
 
 ## Enter Claude Code Custom Commands
 
@@ -32,13 +32,13 @@ I decided to create a comprehensive version management command. Here's what I bu
 ```markdown
 # Semantic Version Manager
 
-Manage semantic versioning for this project using a VERSION file and Git tags.
+You apply or update semantic versioning for the current project using a VERSION file and Git tags.
 
 **Command arguments:** `$ARGUMENTS`
 
 ## Requirements
 
-You are tasked with implementing semantic version management with the following specifications:
+You are tasked with applying or updating semantic versioning with the following specifications:
 
 ### Core Functionality
 - **VERSION file management**: If VERSION file doesn't exist, create it with "0.0.1"
@@ -71,9 +71,10 @@ And Claude Code handles everything:
 ```
 ✅ Updated version: 1.0.0 → 1.0.1
 ✅ Updated VERSION file
+✅ Updated package.json
 ✅ Created git tag: v1.0.1
 ✅ Committed: "Release version 1.0.1"
-✅ Pushed tag to origin
+✅ Pushed commit and tag to origin
 ```
 
 For major releases, it's just as simple:
@@ -94,11 +95,19 @@ What started as a simple version incrementer evolved into a robust tool:
 - **Build metadata**: Supports build metadata like "1.0.0+build.123"
 - **Comprehensive error handling**: Gracefully handles network issues, permission problems, and invalid version formats
 
+## Lessons Learned: Precision in Prompt Engineering
+
+Creating this command required several iterations to get right. Initially, Claude Code would eagerly interpret "implementing semantic version management" as a request to write a fresh bash script for version management - clearly not what I wanted! The solution was changing the wording to "applying semantic version management" which guided Claude to work with existing tools rather than creating new ones.
+
+I also had to add an explicit instruction: "Do not create any files other than VERSION if not present" to prevent the creation of unnecessary bash scripts. These refinements highlight how precise language in custom commands can make the difference between a helpful automation tool and an overzealous code generator.
+
+It proves again that one needs to be very specific in prompts in natural language.
+
 ## The Bigger Picture
 
-Custom slash commands have proven to be incredibly flexible! My development workflow is no longer cluttered with repetitive manual tasks, and my team now has a standardized way to handle version releases across all our projects.
+Custom slash commands have proven to be incredibly flexible! I've created a Github repository for it which you can checkout at [https://github.com/y-a-v-a/claude-cude-custom-commands](https://github.com/y-a-v-a/claude-cude-custom-commands). The next step is to use the VERSION file to trigger my GitHub Actions workflows for automated deployments and releases.
 
-The real power lies in their shareability. Once I created this command, every team member could immediately benefit from the same workflow. No more "how do I tag this release again?" questions in Slack.
+At approximately 2.2k tokens per execution, this command is remarkably cost-effective compared to the time and potential errors it saves.
 
 ## Beyond Version Management
 
@@ -119,12 +128,8 @@ Creating your own custom commands is straightforward:
 3. Use `$ARGUMENTS` for dynamic inputs
 4. Invoke with `/project:command-name arguments`
 
-The version management command is available in my [claude-code-custom-commands repository](https://github.com/y-a-v-a/claude-cude-custom-commands) as a starting point for your own automation journey.
-
 ## Conclusion
 
-Claude Code's custom slash commands have fundamentally changed how I approach repetitive development tasks. What used to be error-prone manual processes are now reliable, one-line commands that my entire team can use consistently.
-
-If you're still manually managing versions, deployments, or any other routine tasks, I highly recommend exploring custom commands. The initial investment in creating them pays dividends in reduced errors, improved consistency, and freed-up mental bandwidth for the work that actually matters.
+If you're still manually managing versions, deployments, or any other routine tasks, I highly recommend exploring custom commands. The initial investment in creating them pays off in reduced errors, improved consistency, and freed-up mental space for the work that actually matters.
 
 The development workflow automation possibilities are endless – and that's exactly what makes this feature so exciting.
