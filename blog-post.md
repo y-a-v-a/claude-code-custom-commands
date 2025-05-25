@@ -113,9 +113,7 @@ At approximately 2.2k tokens per execution, this command is remarkably cost-effe
 
 Since discovering this feature, I've created several other custom commands:
 
-- `/project:test-coverage` - Runs tests and generates coverage reports
-- `/project:deploy-staging` - Handles staging deployments with proper checks
-- `/project:docs-update` - Updates documentation based on code changes
+- `/project:update-readme` - Analyses repo and some commits to update your README.md
 
 Each command encapsulates domain knowledge and best practices, making our team more efficient and consistent.
 

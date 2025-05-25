@@ -2,6 +2,8 @@
 
 This repository contains custom commands for Claude Code that extend its functionality with project-specific automation tools.
 
+**Current Version:** 1.1.0
+
 ## Commands
 
 ### Version Command
@@ -87,10 +89,52 @@ No changes made. Use without --dry-run to apply changes.
 ✅ Pushed tag to origin
 ```
 
+### Update README Command
+
+A command that automatically updates the README.md file based on recent repository changes and project structure.
+
+#### Usage
+
+```bash
+> /project:update-readme [custom instructions]
+```
+
+#### Features
+
+- **Intelligent analysis**: Analyzes recent git commits, file structure, and existing documentation
+- **Content preservation**: Maintains manually written content while updating generated sections
+- **Custom instructions**: Accepts additional requirements via arguments
+- **Version awareness**: Includes current version from VERSION file
+- **Technology detection**: Automatically detects and documents tech stack
+- **Link validation**: Ensures internal links work and external links are valid
+
+#### Examples
+
+```bash
+# Basic README update
+> /project:update-readme
+
+# Update with custom instructions
+> /project:update-readme update copyright information
+> /project:update-readme add API documentation section
+> /project:update-readme include deployment instructions
+```
+
+#### What Gets Updated
+
+- Project description and current version
+- Installation and usage instructions
+- API documentation from code analysis
+- Dependencies and requirements
+- Contributing guidelines and license information
+- Technology stack documentation
+
 ## Installation
 
 1. Clone this repository to your Claude Code commands directory
-2. The version command will be available as `/project:version`
+2. Commands will be available as:
+   - `/project:version` - Semantic version management
+   - `/project:update-readme` - README.md updates
 
 ## Requirements
 
