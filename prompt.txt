@@ -1,0 +1,25 @@
+Create a custom command called "version" that manages semantic versioning for projects using a VERSION file and Git tags.
+
+Requirements:
+- If VERSION file doesn't exist, create it with "0.0.1"
+- Read current version from VERSION file and validate it's proper semver
+- Accept these subcommands:
+  - "patch" - increment patch version (0.0.1 -> 0.0.2)
+  - "minor" - increment minor version (0.0.1 -> 0.1.0) 
+  - "major" - increment major version (0.0.1 -> 1.0.0)
+  - "set X.Y.Z" - set specific version
+  - "current" - show current version without changes
+- Update VERSION file with new version
+- Create git tag with format "v{version}" and commit message "Release version {version}"
+- Push the tag to origin
+- Verify working directory is clean before making changes
+- Handle errors gracefully (invalid versions, git issues, etc.)
+
+The command should work like:
+- `claude-code version current`
+- `claude-code version patch`
+- `claude-code version minor` 
+- `claude-code version major`
+- `claude-code version set 2.1.0`
+
+Make it robust and user-friendly with clear success/error messages.
