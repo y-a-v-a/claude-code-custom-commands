@@ -12,7 +12,7 @@ You are tasked with implementing semantic version management with the following 
 - **VERSION file management**: If VERSION file doesn't exist, create it with "0.0.1"
 - **Version validation**: Read current version from VERSION file and validate it follows proper semantic versioning (MAJOR.MINOR.PATCH)
 - **Git integration**: Create git tags with format "v{version}" and commit with message "Release version {version}"
-- **Remote sync**: Push the tag to origin after creation
+- **Remote sync**: Push the tag _and_ the version commit to origin after creation
 
 ### Supported Commands
 Parse the `$ARGUMENTS` and handle these subcommands:
