@@ -16,10 +16,10 @@ Requirements:
 - Handle errors gracefully (invalid versions, git issues, etc.)
 
 The command should work like:
-- `claude-code version current`
-- `claude-code version patch`
-- `claude-code version minor` 
-- `claude-code version major`
-- `claude-code version set 2.1.0`
+- `/project:version current`
+- `/project:version patch`
+- `/project:version minor` 
+- `/project:version major`
+- `/project:version set 2.1.0`
 
 Make it robust and user-friendly with clear success/error messages.
