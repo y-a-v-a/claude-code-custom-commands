@@ -1,20 +1,20 @@
 # Streamlining Development Workflows with Claude Code Custom Commands
 
-I recently discovered a neat feature in Claude Code that I had to share: custom slash commands. I wanted a way to easily tag repository states, and specifically in small projects that do not rely on `package.json` or similar, by relying on a `VERSION` file. I decided to dive deep into custom slash commands and create my own semantic versioning command. What I found was a flexible system that has lightened up how I handle routine development tasks.
+I recently discovered a neat feature in Anthropic's [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) that I had to share: custom slash commands. I wanted a way to easily tag repository states, and specifically in small projects that do not rely on `package.json` or similar, by relying on a `VERSION` file. I decided to dive deep into custom slash commands and create my own semantic versioning command. What I found was a flexible system that has lightened up how I handle routine development tasks.
 
 ## The Problem: Repetitive Version Management
 
-I love git, it's ondoubtedly very powerful, but the tedious process of versioning was something I stopped doing because of all steps I wanted to take, for example:
+I love Git, it's ondoubtedly very powerful, but the tedious process of versioning was something I stopped doing because of all steps I wanted to take, for example:
 
 1. Check if the working directory is clean
-2. Read the current version from a VERSION file
+2. Read the current version from a `VERSION` file
 3. Increment the version according to semantic versioning rules
-4. Update the VERSION file
+4. Update the `VERSION` file
 5. Create a git tag
 6. Commit the changes
 7. Push everything to the remote repository
 
-This process, while straightforward, was error-prone and time-consuming. I want to rely more on VERSION file updates to trigger GitHub Actions workflows for automated deployments and releases: I wanted something more automated, more reliable, and frankly, more elegant.
+This process, while straightforward, was error-prone and time-consuming. I want to rely more on `VERSION` file updates to trigger [GitHub Actions](https://github.com/features/actions) workflows for automated deployments and releases: I wanted something more automated, more reliable, and frankly, more elegant.
 
 ## Enter Claude Code Custom Commands
 
@@ -99,7 +99,7 @@ What started as a simple version incrementer evolved into a robust tool:
 
 Creating this command required several iterations to get right. Initially, Claude Code would eagerly interpret "implementing semantic version management" as a request to write a fresh bash script for version management - clearly not what I wanted! The solution was changing the wording to "applying semantic version management" which guided Claude to work with existing tools rather than creating new ones.
 
-I also had to add an explicit instruction: "Do not create any files other than VERSION if not present" to prevent the creation of unnecessary bash scripts. These refinements highlight how precise language in custom commands can make the difference between a helpful automation tool and an overzealous code generator.
+I also had to add an explicit instruction: "Do not create any files other than `VERSION` if not present" to prevent the creation of unnecessary bash scripts. These refinements highlight how precise language in custom commands can make the difference between a helpful automation tool and an overzealous code generator.
 
 It proves again that one needs to be very specific in prompts in natural language.
 
@@ -113,7 +113,9 @@ At approximately 2.2k tokens per execution, this command is remarkably cost-effe
 
 Since discovering this feature, I've created several other custom commands:
 
-- `/project:update-readme` - Analyses repo and some commits to update your README.md
+- `/project:update-readme` - Analyses repo and some commits to update your `README.md`
+- `/project:giti` - Initializes a Git repository, adds a `.gitignore` with some basic file mentions and commits `.gitignore`
+- `/project:gits` - Adds all new and stages all changed files and commits them right away
 
 Each command encapsulates domain knowledge and best practices, making our team more efficient and consistent.
 
