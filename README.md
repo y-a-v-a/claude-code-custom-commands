@@ -13,7 +13,7 @@ A semantic version management command that handles versioning for projects using
 #### Usage
 
 ```bash
-> /project:version <subcommand>
+> /project:y-version <subcommand>
 ```
 
 #### Subcommands
@@ -47,22 +47,22 @@ A semantic version management command that handles versioning for projects using
 # In Claude Code
 
 # Show current version
-> /project:version current
+> /project:y-version current
 
 # Increment patch version
-> /project:version patch
+> /project:y-version patch
 
 # Increment minor version
-> /project:version minor
+> /project:y-version minor
 
 # Increment major version
-> /project:version major
+> /project:y-version major
 
 # Set specific version
-> /project:version set 2.1.0
+> /project:y-version set 2.1.0
 
 # Preview changes without applying
-> /project:version patch --dry-run
+> /project:y-version patch --dry-run
 ```
 
 #### Output Examples
@@ -96,7 +96,7 @@ A command that automatically updates the README.md file based on recent reposito
 #### Usage
 
 ```bash
-> /project:update-readme [custom instructions]
+> /project:y-update-readme [custom instructions]
 ```
 
 #### Features
@@ -112,12 +112,12 @@ A command that automatically updates the README.md file based on recent reposito
 
 ```bash
 # Basic README update
-> /project:update-readme
+> /project:y-update-readme
 
 # Update with custom instructions
-> /project:update-readme update copyright information
-> /project:update-readme add API documentation section
-> /project:update-readme include deployment instructions
+> /project:y-update-readme update copyright information
+> /project:y-update-readme add API documentation section
+> /project:y-update-readme include deployment instructions
 ```
 
 #### What Gets Updated
@@ -133,8 +133,8 @@ A command that automatically updates the README.md file based on recent reposito
 
 1. Clone this repository to your Claude Code commands directory
 2. Commands will be available as:
-   - `/project:version` - Semantic version management
-   - `/project:update-readme` - README.md updates
+   - `/project:y-version` - Semantic version management
+   - `/project:y-update-readme` - README.md updates
 
 ## Requirements
 

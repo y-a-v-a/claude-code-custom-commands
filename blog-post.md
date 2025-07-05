@@ -1,6 +1,6 @@
 # Streamlining Development Workflows with Claude Code Custom Commands
 
-I recently discovered a neat feature in Anthropic's [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) that I had to share: custom slash commands. I wanted a way to easily tag repository states, and specifically in small projects that do not rely on `package.json` or similar, by relying on a `VERSION` file. I decided to dive deep into custom slash commands and create my own semantic versioning command. What I found was a flexible system that has lightened up how I handle routine development tasks.
+I recently discovered a neat feature in Anthropic's [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview): custom slash commands. I wanted a way to easily tag repository states, and specifically in small projects that do not rely on `package.json` or similar, by relying on a `VERSION` file. I decided to dive into custom slash commands and create my own semantic versioning command. What I found was a flexible system that has lightened up how I handle routine development tasks.
 
 ## The Problem: Repetitive Version Management
 
@@ -41,12 +41,14 @@ You apply or update semantic versioning for the current project using a VERSION 
 You are tasked with applying or updating semantic versioning with the following specifications:
 
 ### Core Functionality
+
 - **VERSION file management**: If VERSION file doesn't exist, create it with "0.0.1"
 - **Version validation**: Read current version from VERSION file and validate it follows proper semantic versioning (MAJOR.MINOR.PATCH)
 - **Git integration**: Create git tags with format "v{version}" and commit with message "Release version {version}"
 - **Remote sync**: Push the tag _and_ the version commit to origin after creation
 
 ### Supported Commands
+
 Parse the `$ARGUMENTS` and handle these subcommands:
 
 - **`current`** - Display current version without making changes
@@ -63,7 +65,7 @@ The magic happens with the `$ARGUMENTS` placeholder. This allows the command to 
 Now, instead of going through that lengthy manual process, I simply type:
 
 ```bash
-/project:version patch
+/project:y-version patch
 ```
 
 And Claude Code handles everything:
@@ -80,7 +82,7 @@ And Claude Code handles everything:
 For major releases, it's just as simple:
 
 ```bash
-/project:version major
+/project:y-version major
 ```
 
 The command even includes safety features like checking for a clean working directory and graceful error handling.
@@ -113,9 +115,9 @@ At approximately 2.2k tokens per execution, this command is remarkably cost-effe
 
 Since discovering this feature, I've created several other custom commands:
 
-- `/project:update-readme` - Analyses repo and some commits to update your `README.md`
-- `/project:giti` - Initializes a Git repository, adds a `.gitignore` with some basic file mentions and commits `.gitignore`
-- `/project:gits` - Adds all new and stages all changed files and commits them right away
+- `/project:y-update-readme` - Analyses repo and some commits to update your `README.md`
+- `/project:y-giti` - Initializes a Git repository, adds a `.gitignore` with some basic file mentions and commits `.gitignore`
+- `/project:y-attribution` - Adds a formatted attribution text at the bottom of a project's `README.md`
 
 Each command encapsulates domain knowledge and best practices, making our team more efficient and consistent.
 
