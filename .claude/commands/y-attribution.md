@@ -1,3 +1,9 @@
+---
+description: "Add or update attribution information in README.md"
+argument-hints:
+  year: "Year for attribution (e.g., 2024)"
+---
+
 # Attribution Manager
 
 You add or update attribution information in the project's README.md file.
@@ -26,8 +32,8 @@ Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {year}
 ```
 
 ### Example Usage
-- `$ARGUMENTS` = "2009" � Add attribution with year 2009
-- `$ARGUMENTS` = "2024" � Add attribution with year 2024
+- `$ARGUMENTS` = "2009" � Add attribution with year 2009
+- `$ARGUMENTS` = "2024" � Add attribution with year 2024
 
 ### Safety Checks
 - **File validation**: Ensure README.md exists before attempting to modify
@@ -37,20 +43,20 @@ Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {year}
 ### Output Format
 For successful execution:
 ```
- Added attribution to README.md
- Attribution: Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {year}
+✅ Added attribution to README.md
+✅ Attribution: Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {year}
 ```
 
 For existing attribution:
 ```
-9 Attribution already exists in README.md
-9 Current attribution: Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {existing_year}
+ℹ️ Attribution already exists in README.md
+ℹ️ Current attribution: Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {existing_year}
 ```
 
 For missing README.md:
 ```
-L README.md not found in project root
-L Cannot add attribution without README.md file
+❗️ README.md not found in project root
+❗️ Cannot add attribution without README.md file
 ```
 
 ### Error Handling

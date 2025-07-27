@@ -1,3 +1,7 @@
+---
+description: "Initialize a Git repository with a basic .gitignore file"
+---
+
 # Git Initialize Command
 
 Initialize a Git repository with a basic .gitignore file.
