@@ -32,8 +32,8 @@ Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {year}
 ```
 
 ### Example Usage
-- `$ARGUMENTS` = "2009" � Add attribution with year 2009
-- `$ARGUMENTS` = "2024" � Add attribution with year 2024
+- `$ARGUMENTS` = "2009" : Add attribution with year 2009
+- `$ARGUMENTS` = "2024" : Add attribution with year 2024
 
 ### Safety Checks
 - **File validation**: Ensure README.md exists before attempting to modify
@@ -44,13 +44,13 @@ Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {year}
 For successful execution:
 ```
 ✅ Added attribution to README.md
-✅ Attribution: Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {year}
+✅ Attribution: Vincent Bruijn <vebruijn@gmail.com> • y-a-v-a.org • {year}
 ```
 
 For existing attribution:
 ```
 ℹ️ Attribution already exists in README.md
-ℹ️ Current attribution: Vincent Bruijn <vebruijn@gmail.com> " y-a-v-a.org " {existing_year}
+ℹ️ Current attribution: Vincent Bruijn <vebruijn@gmail.com> • y-a-v-a.org • {existing_year}
 ```
 
 For missing README.md:

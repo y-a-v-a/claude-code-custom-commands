@@ -135,6 +135,8 @@ A command that automatically updates the README.md file based on recent reposito
 2. Commands will be available as:
    - `/project:y-version` - Semantic version management
    - `/project:y-update-readme` - README.md updates
+   - `/project:y-attribution` - Add attribution information to README.md
+   - `/project:y-giti` - Initialize Git repository with .gitignore
 
 ## Requirements
 
@@ -151,3 +153,5 @@ The commands include robust error handling for common scenarios:
 - Missing git repository
 - Permission issues
 - File system errors
+
+Vincent Bruijn <vebruijn@gmail.com> • y-a-v-a.org • 2025
