@@ -1,6 +1,9 @@
-# Semantic Version Manager
+---
+argument-hint: "current | patch | minor | major | set X.Y.Z [--dry-run]"
+description: "Apply or update semantic versioning for the current project using a VERSION file and Git tags"
+---
 
-You apply or update semantic versioning for the current project using a VERSION file and Git tags.
+# Semantic Version Manager
 
 **Command arguments:** `$ARGUMENTS`
 
@@ -39,15 +42,6 @@ If these files exist, also update version in:
 - `Cargo.toml` (if present)
 - `pyproject.toml` (if present)
 
-### Example todo list
-- [ ] Check current git status and working directory cleanliness
-- [ ] Read current version from VERSION file
-- [ ] Increment patch version (X.Y.Z → X.Y.Z)
-- [ ] Update VERSION file with new version
-- [ ] Check for and update package.json, Cargo.toml, pyproject.toml if present
-- [ ] Create git tag with v{version} format
-- [ ] Commit changes with proper message
-- [ ] Push both commit and tag to origin
 
 ### Output Format
 For dry-run mode, show:
@@ -81,4 +75,3 @@ Handle these gracefully:
 - Permission issues
 
 **Always be thorough, robust, and user-friendly with clear success/error messages.**
-**Do not create any files other than VERSION if not present**

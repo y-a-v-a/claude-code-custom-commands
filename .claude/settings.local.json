@@ -9,5 +9,6 @@
       "Bash(mv:*)"
     ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": false
 }

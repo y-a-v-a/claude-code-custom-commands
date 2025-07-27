@@ -1,6 +1,9 @@
-# README Update Command
+---
+argument-hint: "[custom instructions]"
+description: "Automatically update the README.md file based on recent repository changes and project structure"
+---
 
-Automatically update the README.md file based on recent repository changes and project structure.
+# README Update Command
 
 **Command arguments:** `$ARGUMENTS`
 
@@ -80,4 +83,3 @@ Handle these scenarios gracefully:
 - **Link verification**: Validate that generated links and references work
 
 **Always maintain professional documentation standards and ensure the README.md accurately reflects the current state of the project.**
-**Do not create any files other than README.md if not present**
